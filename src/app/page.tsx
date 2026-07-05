@@ -6,6 +6,7 @@ import { ProjectsSection } from "@/features/home/presentation/components/Project
 import { TechZenithSection } from "@/features/home/presentation/components/TechZenithSection";
 import { CareerTimeline } from "@/features/home/presentation/components/CareerTimeline";
 import { ParticlesBackground } from "@/core/presentation/components/ParticlesBackground";
+import { Constellations } from "@/core/presentation/components/Constellations";
 import { SpotlightEffect } from "@/core/presentation/components/SpotlightEffect";
 import { ScrollReveal } from "@/core/presentation/components/ScrollReveal";
 
@@ -26,6 +27,7 @@ export default async function Home({ searchParams }: PageProps) {
   return (
     <div className="relative min-h-screen bg-background text-on-background bg-star-map bg-noise selection:bg-primary/30 selection:text-primary overflow-x-hidden">
       <ParticlesBackground />
+      <Constellations />
       <SpotlightEffect />
       <Header currentLang={currentLang} />
       <main className="pt-32 pb-section-gap">
