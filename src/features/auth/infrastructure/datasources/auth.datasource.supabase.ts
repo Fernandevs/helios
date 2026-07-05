@@ -1,4 +1,4 @@
-import { getSupabaseServerClient } from "@/core/adapters/supabase";
+import { getSupabaseServerClient } from "@/core/infraestructure/adapters/supabase";
 import { AuthDatasource, RawAuthResponse } from "../../domain/datasources/auth.datasource";
 
 export class AuthDatasourceSupabase implements AuthDatasource {
