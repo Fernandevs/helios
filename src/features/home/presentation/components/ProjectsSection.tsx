@@ -5,42 +5,53 @@ import {
   SmallProjectCard,
   MediumProjectCard,
 } from "./ProjectCard";
+import { translations, Language } from "@/core/translations/dictionary";
 
-export function ProjectsSection() {
+interface ProjectsSectionProps {
+  currentLang: Language;
+}
+
+export function ProjectsSection({ currentLang }: ProjectsSectionProps) {
+  const t = translations[currentLang].projects;
+
   return (
-    <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+    <section
+      id="featured-projects"
+      className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap scroll-mt-24"
+    >
       <div className="flex justify-between items-end mb-stack-lg">
         <div>
           <h2 className="text-headline-lg text-on-surface font-semibold">
-            Featured Projects
+            {t.title}
           </h2>
           <p className="text-body-md text-on-surface-variant">
-            Selected mission logs from the software frontier.
+            {t.subtitle}
           </p>
         </div>
         <a
           className="font-label-caps text-label-caps text-primary hover:underline transition-all"
           href="#"
         >
-          View All Archives -&gt;
+          {t.viewAll}
         </a>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-        <LargeProjectCard />
+        <LargeProjectCard currentLang={currentLang} />
         <SmallProjectCard
           icon={Activity}
-          title="Signal v2.0"
-          description="Real-time telemetry engine for IoT constellation tracking."
+          title={t.cardSmall1.title}
+          description={t.cardSmall1.description}
           tech="Rust / WebAssembly"
         />
         <SmallProjectCard
           icon={Terminal}
-          title="Quasar UI"
-          description="A high-performance design system for engineering dashboards."
+          title={t.cardSmall2.title}
+          description={t.cardSmall2.description}
           tech="React / TypeScript"
         />
-        <MediumProjectCard />
+        <MediumProjectCard currentLang={currentLang} />
       </div>
     </section>
   );
 }
+

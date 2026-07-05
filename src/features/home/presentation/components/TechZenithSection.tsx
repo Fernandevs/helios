@@ -1,33 +1,37 @@
 import React from "react";
+import { translations, Language } from "@/core/translations/dictionary";
 
-export function TechZenithSection() {
+interface TechZenithSectionProps {
+  currentLang: Language;
+}
+
+export function TechZenithSection({ currentLang }: TechZenithSectionProps) {
+  const t = translations[currentLang].techZenith;
   const skills = [
-    { name: "Distributed Systems", percentage: 95, width: "w-[95%]" },
-    { name: "Cloud Architecture", percentage: 90, width: "w-[90%]" },
-    { name: "Full-stack Frameworks", percentage: 85, width: "w-[85%]" },
+    { name: t.skills.distributed, percentage: 95, width: "w-[95%]" },
+    { name: t.skills.cloud, percentage: 90, width: "w-[90%]" },
+    { name: t.skills.fullstack, percentage: 85, width: "w-[85%]" },
   ];
 
   return (
-    <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap overflow-hidden">
+    <section
+      id="technological-zenith"
+      className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap overflow-hidden scroll-mt-24"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-section-gap items-center">
         <div>
           <h2 className="text-headline-lg text-on-surface mb-stack-md font-semibold">
-            Technological Zenith
+            {t.title}
           </h2>
           <p className="text-body-lg text-on-surface-variant mb-stack-lg font-sans">
-            Navigating the vast expanse of modern development with a specialized
-            toolset calibrated for precision and scale.
+            {t.description}
           </p>
           <div className="space-y-stack-lg">
             {skills.map((skill) => (
               <div key={skill.name}>
                 <div className="flex justify-between mb-stack-sm">
-                  <span className="font-label-caps text-on-surface uppercase">
-                    {skill.name}
-                  </span>
-                  <span className="font-label-caps text-primary">
-                    {skill.percentage}%
-                  </span>
+                  <span className="font-label-caps text-on-surface uppercase">{skill.name}</span>
+                  <span className="font-label-caps text-primary">{skill.percentage}%</span>
                 </div>
                 <div className="w-full bg-surface-container-high h-1 overflow-hidden rounded">
                   <div className={`bg-primary h-full ${skill.width}`}></div>
@@ -56,10 +60,7 @@ export function TechZenithSection() {
               <div className="w-2 h-2 bg-secondary rounded-full shadow-[0_0_10px_rgba(221,183,255,0.8)]"></div>
               <span className="font-label-caps text-[10px] mt-2">NODE</span>
             </div>
-            <svg
-              className="absolute inset-0 w-full h-full opacity-20"
-              viewBox="0 0 400 400"
-            >
+            <svg className="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 400">
               <path
                 className="text-primary"
                 d="M200,40 L350,300 L50,300 Z"
@@ -77,10 +78,8 @@ export function TechZenithSection() {
               ></path>
             </svg>
             <div className="text-center z-10">
-              <div className="text-headline-md text-primary font-bold">CORE</div>
-              <div className="font-label-caps text-on-surface-variant">
-                ENGINE
-              </div>
+              <div className="text-headline-md text-primary font-bold">{t.coreEngine}</div>
+              <div className="font-label-caps text-on-surface-variant">ENGINE</div>
             </div>
           </div>
         </div>
@@ -88,3 +87,4 @@ export function TechZenithSection() {
     </section>
   );
 }
+

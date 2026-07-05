@@ -15,27 +15,35 @@ export const metadata: Metadata = {
     "Iván Fernando crafts high-density software architectures that bridge the gap between abstract mathematical models and production-ready resilience.",
 };
 
-export default function Home() {
+type PageProps = {
+  searchParams: Promise<{ lang?: string }>;
+};
+
+export default async function Home({ searchParams }: PageProps) {
+  const { lang = "en" } = await searchParams;
+  const currentLang = lang === "es" ? "es" : "en";
+
   return (
     <div className="relative min-h-screen bg-background text-on-background bg-star-map bg-noise selection:bg-primary/30 selection:text-primary overflow-x-hidden">
       <ParticlesBackground />
       <SpotlightEffect />
-      <Header />
+      <Header currentLang={currentLang} />
       <main className="pt-32 pb-section-gap">
         <ScrollReveal>
-          <HeroSection />
+          <HeroSection currentLang={currentLang} />
         </ScrollReveal>
         <ScrollReveal>
-          <ProjectsSection />
+          <ProjectsSection currentLang={currentLang} />
         </ScrollReveal>
         <ScrollReveal>
-          <TechZenithSection />
+          <TechZenithSection currentLang={currentLang} />
         </ScrollReveal>
         <ScrollReveal>
-          <CareerTimeline />
+          <CareerTimeline currentLang={currentLang} />
         </ScrollReveal>
       </main>
-      <Footer />
+      <Footer currentLang={currentLang} />
     </div>
   );
 }
+

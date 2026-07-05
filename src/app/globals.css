@@ -82,6 +82,10 @@
   --spacing-section-gap: 120px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-on-background);

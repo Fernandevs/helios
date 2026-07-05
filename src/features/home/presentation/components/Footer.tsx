@@ -1,11 +1,18 @@
 import React from "react";
+import { translations, Language } from "@/core/translations/dictionary";
 
-export function Footer() {
+interface FooterProps {
+  currentLang: Language;
+}
+
+export function Footer({ currentLang }: FooterProps) {
+  const t = translations[currentLang].footer;
+
   return (
     <footer className="w-full py-stack-lg px-margin-desktop flex flex-col md:flex-row justify-between items-center gap-stack-md border-t border-outline-variant/20 bg-background relative z-10">
       <div className="flex items-center gap-stack-md">
         <span className="font-label-caps text-label-caps text-primary">
-          © 2024 Engineering the Digital Universe. System Status: Nominal.
+          {t.copy}
         </span>
       </div>
       <div className="flex gap-stack-lg">
@@ -13,27 +20,28 @@ export function Footer() {
           className="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps transition-colors"
           href="#"
         >
-          GitHub
+          {t.links.github}
         </a>
         <a
           className="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps transition-colors"
           href="#"
         >
-          LinkedIn
+          {t.links.linkedin}
         </a>
         <a
           className="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps transition-colors"
           href="#"
         >
-          Documentation
+          {t.links.docs}
         </a>
         <a
           className="text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps transition-colors"
           href="#"
         >
-          Changelog
+          {t.links.changelog}
         </a>
       </div>
     </footer>
   );
 }
+

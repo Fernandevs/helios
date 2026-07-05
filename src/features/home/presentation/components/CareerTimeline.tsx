@@ -1,37 +1,24 @@
 import React from "react";
+import { translations, Language } from "@/core/translations/dictionary";
 
-export function CareerTimeline() {
-  const experiences = [
-    {
-      period: "2021 — PRESENT",
-      title: "Lead Systems Engineer",
-      company: "Astra-Tech Solutions",
-      description:
-        "Spearheading the migration of monolith services to a decentralized micro-frontend architecture using Next.js and Go.",
-      alignLeft: true,
-    },
-    {
-      period: "2018 — 2021",
-      title: "Senior Backend Developer",
-      company: "CloudScale Data",
-      description:
-        "Architected a proprietary data streaming platform that handles 500k events/sec with minimal jitter.",
-      alignLeft: false,
-    },
-    {
-      period: "2014 — 2018",
-      title: "Software Engineer",
-      company: "Innova Soft",
-      description:
-        "Implemented responsive dashboard systems and integrated 3rd party financial APIs for global fintech clients.",
-      alignLeft: true,
-    },
-  ];
+interface CareerTimelineProps {
+  currentLang: Language;
+}
+
+export function CareerTimeline({ currentLang }: CareerTimelineProps) {
+  const t = translations[currentLang].career;
+  const experiences = t.jobs.map((job, idx) => ({
+    ...job,
+    alignLeft: idx % 2 === 0,
+  }));
 
   return (
-    <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <section
+      id="career-trajectory"
+      className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop scroll-mt-24"
+    >
       <h2 className="text-headline-lg text-on-surface mb-stack-lg text-center font-semibold">
-        Career Trajectory
+        {t.title}
       </h2>
       <div className="relative max-w-4xl mx-auto pl-8 md:pl-0">
         <div className="absolute left-0 md:left-1/2 top-0 bottom-0 orbit-path opacity-30 transform -translate-x-1/2"></div>
@@ -62,3 +49,4 @@ export function CareerTimeline() {
     </section>
   );
 }
+

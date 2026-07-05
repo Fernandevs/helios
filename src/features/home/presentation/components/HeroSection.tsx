@@ -1,42 +1,50 @@
 import React from "react";
 import Image from "next/image";
+import { translations, Language } from "@/core/translations/dictionary";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  currentLang: Language;
+}
+
+export function HeroSection({ currentLang }: HeroSectionProps) {
+  const t = translations[currentLang].hero;
+
   return (
-    <section className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap">
+    <section
+      id="inicio"
+      className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-section-gap scroll-mt-24"
+    >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
         <div className="lg:col-span-8">
           <div className="flex items-center gap-stack-sm mb-stack-md">
             <span className="w-12 h-px bg-primary"></span>
             <span className="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em]">
-              System Architect / V0.4.2-Alpha
+              {t.tag}
             </span>
           </div>
           <h1 className="text-display text-on-surface mb-stack-lg max-w-4xl">
-            Building scalable systems and exploring complex digital universes.
+            {t.title}
           </h1>
           <p className="text-body-lg text-on-surface-variant mb-stack-lg max-w-2xl font-sans">
-            Iván Fernando crafts high-density software architectures that bridge
-            the gap between abstract mathematical models and production-ready
-            resilience.
+            {t.description}
           </p>
           <div className="flex flex-wrap gap-stack-lg">
             <div className="flex flex-col">
               <span className="text-headline-md text-primary font-bold">10+</span>
               <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">
-                Years Experience
+                {t.stats.experience}
               </span>
             </div>
             <div className="flex flex-col">
               <span className="text-headline-md text-primary font-bold">50+</span>
               <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">
-                Projects Launched
+                {t.stats.projects}
               </span>
             </div>
             <div className="flex flex-col">
               <span className="text-headline-md text-primary font-bold">12</span>
               <span className="font-label-caps text-label-caps text-on-surface-variant uppercase">
-                Certifications
+                {t.stats.certifications}
               </span>
             </div>
           </div>
@@ -59,3 +67,4 @@ export function HeroSection() {
     </section>
   );
 }
+
