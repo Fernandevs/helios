@@ -1,5 +1,5 @@
 import React from "react";
-import { translations, Language } from "@/core/translations/dictionary";
+import { translations, Language } from "@/core/application/translations/dictionary";
 
 interface CareerTimelineProps {
   currentLang: Language;

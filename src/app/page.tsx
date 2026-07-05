@@ -5,9 +5,9 @@ import { HeroSection } from "@/features/home/presentation/components/HeroSection
 import { ProjectsSection } from "@/features/home/presentation/components/ProjectsSection";
 import { TechZenithSection } from "@/features/home/presentation/components/TechZenithSection";
 import { CareerTimeline } from "@/features/home/presentation/components/CareerTimeline";
-import { ParticlesBackground } from "@/core/components/ParticlesBackground";
-import { SpotlightEffect } from "@/core/components/SpotlightEffect";
-import { ScrollReveal } from "@/core/components/ScrollReveal";
+import { ParticlesBackground } from "@/core/presentation/components/ParticlesBackground";
+import { SpotlightEffect } from "@/core/presentation/components/SpotlightEffect";
+import { ScrollReveal } from "@/core/presentation/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Iván Fernando | Digital Universe Architect",

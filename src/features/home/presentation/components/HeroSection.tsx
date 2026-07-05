@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { translations, Language } from "@/core/translations/dictionary";
+import { translations, Language } from "@/core/application/translations/dictionary";
 
 interface HeroSectionProps {
   currentLang: Language;
