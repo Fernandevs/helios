@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import { translations, Language } from "@/core/application/translations/dictionary";
+import { Helios } from "@/core/presentation/components/Helios";
 
 interface HeroSectionProps {
   currentLang: Language;
@@ -50,16 +50,13 @@ export function HeroSection({ currentLang }: HeroSectionProps) {
           </div>
         </div>
         <div className="lg:col-span-4 relative flex justify-center">
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-primary/20 flex items-center justify-center p-4">
-            <div className="absolute inset-0 animate-spin-slow border-t border-primary/40 rounded-full"></div>
-            <div className="w-full h-full rounded-full overflow-hidden border-2 border-primary/10 relative">
-              <Image
-                alt="Iván Fernando"
-                className="object-cover bg-surface-container-low"
-                src="https://lh3.googleusercontent.com/aida/AP1WRLslcYyxRu8CR56LTuKYWgiMtdx5fzZKb6NctTZQpaKle_8KUY-Q2pB-yEBr5sQJAGLQtaKjjnkeH0uJ-4AyGzJXyQTFgGycL-YG8nC72gBx9OS7MwqRxaBwc_dTAEdH6Zv9ybV_VXbbf9jwRwXQQuolNdajGl4Xh9yhqsQVpriPvDLqrEiLkxahCKh5-Rwq0F3sj5HJiJnv6TfpC79GOQhQi64qY_LlaSMIKEBn8KwNcjZXGpeqi20uew"
-                fill
-                priority
-              />
+          {/* Glowing Halo Effect */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-80 md:h-80 bg-primary/20 blur-[80px] rounded-full pointer-events-none"></div>
+          
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-primary/30 flex items-center justify-center p-4 shadow-[0_0_40px_rgba(192,193,255,0.15)] bg-surface-container-low/40 backdrop-blur-md">
+            <div className="absolute inset-0 animate-spin-slow border-t border-primary/50 rounded-full"></div>
+            <div className="w-full h-full rounded-full overflow-hidden border border-primary/20 relative flex items-center justify-center">
+              <Helios className="w-full h-full text-primary p-6 animate-pulse duration-3000" />
             </div>
           </div>
         </div>
