@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ShieldListener } from "@/features/shared/presentation/components/ShieldListener";
+import { ShieldListener } from "@/core/presentation/components/ShieldListener";
 const geist = Geist({
   variable: "--font-geist",
   subsets: ["latin"],
