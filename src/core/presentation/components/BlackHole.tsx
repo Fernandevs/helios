@@ -1,4 +1,5 @@
 import React from "react";
+import { Helios } from "./Helios";
 
 export function BlackHole() {
   return (
@@ -38,6 +39,12 @@ export function BlackHole() {
         .animate-pull-1 { animation: pull-particle-1 4s linear infinite; }
         .animate-pull-2 { animation: pull-particle-2 5s linear infinite 1.5s; }
         .animate-pull-3 { animation: pull-particle-3 6s linear infinite 3s; }
+        @keyframes spaghettify {
+          0%, 100% { transform: scale(0.8) rotate(0deg) skew(0deg); filter: blur(0.5px); opacity: 0.7; }
+          33% { transform: scale(0.9, 0.7) rotate(15deg) skew(15deg); filter: blur(1.5px); opacity: 0.4; }
+          66% { transform: scale(0.7, 0.95) rotate(-10deg) skew(-15deg); filter: blur(1px); opacity: 0.5; }
+        }
+        .animate-spaghettify { animation: spaghettify 4s ease-in-out infinite; }
       ` }} />
 
       {/* Warped Gravitational Field Rings */}
@@ -50,9 +57,14 @@ export function BlackHole() {
       <div className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-l from-secondary/20 via-accent/30 to-primary/40 blur-lg animate-spin-reverse" />
 
       {/* Event Horizon & Singularity */}
-      <div className="absolute w-28 h-28 rounded-full bg-black shadow-[0_0_40px_rgba(0,0,0,0.9),0_0_20px_var(--color-primary)] flex items-center justify-center">
+      <div className="absolute w-28 h-28 rounded-full bg-black shadow-[0_0_40px_rgba(0,0,0,0.9),0_0_20px_var(--color-primary)] flex items-center justify-center overflow-hidden">
         {/* Deep black core */}
-        <div className="w-24 h-24 rounded-full bg-black" />
+        <div className="absolute inset-0 m-auto w-24 h-24 rounded-full bg-black z-0" />
+        
+        {/* Distorted Helios Component */}
+        <div className="absolute inset-0 z-10 flex items-center justify-center animate-spaghettify pointer-events-none text-primary">
+          <Helios className="w-20 h-20 mix-blend-screen drop-shadow-[0_0_15px_var(--color-primary)]" />
+        </div>
       </div>
 
       {/* Sucked Star Particles */}
