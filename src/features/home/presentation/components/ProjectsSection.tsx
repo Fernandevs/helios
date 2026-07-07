@@ -5,7 +5,7 @@ import {
   SmallProjectCard,
   MediumProjectCard,
 } from "./ProjectCard";
-import { translations, Language } from "@/core/translations/dictionary";
+import { translations, Language } from "@/core/application/translations/dictionary";
 
 interface ProjectsSectionProps {
   currentLang: Language;

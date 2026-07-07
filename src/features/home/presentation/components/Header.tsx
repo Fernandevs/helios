@@ -1,6 +1,6 @@
 import { Network, Database } from "lucide-react";
-import { LanguageSwitcher } from "@/core/components/LanguageSwitcher";
-import { translations, Language } from "@/core/translations/dictionary";
+import { LanguageSwitcher } from "@/core/presentation/components/LanguageSwitcher";
+import { translations, Language } from "@/core/application/translations/dictionary";
 
 interface HeaderProps {
   currentLang: Language;
