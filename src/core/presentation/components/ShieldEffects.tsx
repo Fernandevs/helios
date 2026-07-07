@@ -176,16 +176,18 @@ function runFireworks(
 
   let frame = 0;
   const draw = () => {
-    ctx.fillStyle = 'rgba(0,0,0,0.15)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = sparks.length - 1; i >= 0; i--) {
       const s = sparks[i];
+      ctx.save();
       ctx.beginPath();
-      ctx.arc(s.x, s.y, 2.5, 0, Math.PI * 2);
+      ctx.arc(s.x, s.y, 3, 0, Math.PI * 2);
       ctx.fillStyle = s.color;
       ctx.globalAlpha = s.life;
+      ctx.shadowColor = s.color;
+      ctx.shadowBlur = 8;
       ctx.fill();
-      ctx.globalAlpha = 1;
+      ctx.restore();
       s.x += s.vx;
       s.y += s.vy;
       s.vy += 0.05;

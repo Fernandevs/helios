@@ -20,20 +20,20 @@ export function ShieldLetterBurst({ word, onDone }: ShieldLetterBurstProps) {
     canvas.height = window.innerHeight;
 
     const letters = word.split('').map((char, i) => {
-      const spread = word.length * 18;
+      const spread = word.length * 30;
       return {
         char,
-        x: canvas.width / 2 + (i - word.length / 2) * 28 + (Math.random() - 0.5) * 40,
-        y: canvas.height / 2 + (Math.random() - 0.5) * 60,
-        size: 16 + Math.random() * 12,
-        targetSize: 80 + Math.random() * 80,
+        x: canvas.width / 2 + (i - word.length / 2) * 52 + (Math.random() - 0.5) * 30,
+        y: canvas.height / 2 + (Math.random() - 0.5) * 40,
+        size: 40 + Math.random() * 20,
+        targetSize: 180 + Math.random() * 140,
         opacity: 0,
         phase: 'grow' as 'grow' | 'hold' | 'fade',
         delay: i * 40,
         elapsed: 0,
         hue: Math.random() * 360,
-        vx: (Math.random() - 0.5) * spread * 0.02,
-        vy: -0.5 - Math.random() * 1.5,
+        vx: (Math.random() - 0.5) * spread * 0.025,
+        vy: -1 - Math.random() * 2.5,
       };
     });
 
