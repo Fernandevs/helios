@@ -16,4 +16,6 @@ export interface RawAuthResponse {
 
 export interface AuthDatasource {
   login(email: string, password: string): Promise<RawAuthResponse>;
+  forgotPassword(email: string): Promise<void>;
+  resetPassword(token: string, password: string): Promise<void>;
 }

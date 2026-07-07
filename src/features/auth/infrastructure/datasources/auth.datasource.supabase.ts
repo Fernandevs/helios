@@ -1,10 +1,21 @@
 import { getSupabaseServerClient } from "@/core/infraestructure/adapters/supabase";
-import { AuthDatasource, RawAuthResponse } from "../../domain/datasources/auth.datasource";
+import { Mailer } from "@/core/domain/services/mailer";
+import { AuthDatasource, RawAuthResponse } from "@/features/auth/domain/datasources/auth.datasource";
+
+type AuthDatasourceProps = {
+  mailer: Mailer;
+};
 
 export class AuthDatasourceSupabase implements AuthDatasource {
+  private readonly mailer: Mailer;
+
+  constructor({ mailer }: AuthDatasourceProps) {
+    this.mailer = mailer;
+  }
+
   async login(email: string, password: string): Promise<RawAuthResponse> {
     const supabase = await getSupabaseServerClient();
-    
+
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -31,5 +42,13 @@ export class AuthDatasourceSupabase implements AuthDatasource {
           }
         : null,
     };
+  }
+
+  forgotPassword(email: string): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
+
+  resetPassword(token: string, password: string): Promise<void> {
+    throw new Error("Method not implemented.");
   }
 }

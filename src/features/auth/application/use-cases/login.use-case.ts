@@ -1,11 +1,18 @@
 import { AuthRepository } from "../../domain/repositories/auth.repository";
-import { UserEntity } from "../../domain/entities/user.entity";
+import { User } from "../../domain/entities/user.entity";
+
+type LoginUseCaseProps = {
+  repository: AuthRepository;
+}
 
 export class LoginUseCase {
-  constructor(private readonly authRepository: AuthRepository) {}
+  private readonly repository: AuthRepository;
 
-  async execute(email: string, password: string): Promise<UserEntity> {
-    // We can add application business logic here if needed (e.g. tracking, logs)
-    return this.authRepository.login(email, password);
+  constructor({ repository }: LoginUseCaseProps) {
+    this.repository = repository;
+  }
+
+  async execute(email: string, password: string): Promise<User> {
+    return this.repository.login(email, password);
   }
 }

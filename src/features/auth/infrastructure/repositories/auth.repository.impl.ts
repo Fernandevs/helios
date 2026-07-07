@@ -1,6 +1,6 @@
 import { AuthDatasource } from "../../domain/datasources/auth.datasource";
 import { AuthRepository } from "../../domain/repositories/auth.repository";
-import { UserEntity } from "../../domain/entities/user.entity";
+import { User } from "../../domain/entities/user.entity";
 import { AuthMapper } from "../../application/mappers/auth.mapper";
 import {
   UnauthorizedError,
@@ -8,10 +8,18 @@ import {
   ValidationError,
 } from "@/core/domain/errors";
 
-export class AuthRepositoryImpl implements AuthRepository {
-  constructor(private readonly datasource: AuthDatasource) {}
+type AuthRepositoryImplProps = {
+  datasource: AuthDatasource;
+}
 
-  async login(email: string, password: string): Promise<UserEntity> {
+export class AuthRepositoryImpl implements AuthRepository {
+  private readonly datasource: AuthDatasource;
+
+  constructor({ datasource }: AuthRepositoryImplProps) {
+    this.datasource = datasource;
+  }
+
+  async login(email: string, password: string): Promise<User> {
     try {
       const response = await this.datasource.login(email, password);
       
@@ -23,8 +31,7 @@ export class AuthRepositoryImpl implements AuthRepository {
     } catch (error: unknown) {
       if (error instanceof Error) {
         const message = error.message;
-        
-        // Supabase error mapping
+
         if (message.includes("Invalid login credentials") || message.includes("invalid_credentials")) {
           throw new UnauthorizedError("Credenciales de acceso inválidas.");
         }
@@ -42,5 +49,13 @@ export class AuthRepositoryImpl implements AuthRepository {
 
       throw new UnexpectedError("Error desconocido durante la autenticación.");
     }
+  }
+
+  forgotPassword(email: string): Promise<void> {
+    throw new Error("Method not implemented.");
+  }
+
+  resetPassword(token: string, password: string): Promise<void> {
+    throw new Error("Method not implemented.");
   }
 }
