@@ -1,5 +1,3 @@
-import React from "react";
-
 export function Constellations() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0 opacity-40">

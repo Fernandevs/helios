@@ -1,34 +1,14 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+import { useScrollReveal } from "@/features/core/presentation/hooks/useScrollReveal";
 
 interface ScrollRevealProps {
   children: React.ReactNode;
 }
 
 export function ScrollReveal({ children }: ScrollRevealProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+  const { ref, isVisible } = useScrollReveal();
 
   return (
     <div
@@ -41,3 +21,4 @@ export function ScrollReveal({ children }: ScrollRevealProps) {
     </div>
   );
 }
+
