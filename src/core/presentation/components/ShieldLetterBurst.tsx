@@ -23,10 +23,10 @@ export function ShieldLetterBurst({ word, onDone }: ShieldLetterBurstProps) {
       const spread = word.length * 30;
       return {
         char,
-        x: canvas.width / 2 + (i - word.length / 2) * 52 + (Math.random() - 0.5) * 30,
+        x: canvas.width / 2 + (i - word.length / 2) * 42 + (Math.random() - 0.5) * 20,
         y: canvas.height / 2 + (Math.random() - 0.5) * 40,
-        size: 40 + Math.random() * 20,
-        targetSize: 180 + Math.random() * 140,
+        size: 80 + Math.random() * 20,
+        targetSize: 280 + Math.random() * 200,
         opacity: 0,
         phase: 'grow' as 'grow' | 'hold' | 'fade',
         delay: i * 40,
@@ -50,8 +50,8 @@ export function ShieldLetterBurst({ word, onDone }: ShieldLetterBurstProps) {
         if (elapsed < 0) return;
 
         if (l.phase === 'grow') {
-          l.size += (l.targetSize - l.size) * 0.06;
-          l.opacity = Math.min(l.opacity + 0.04, 0.9);
+          l.size += (l.targetSize - l.size) * 0.12;
+          l.opacity = Math.min(l.opacity + 0.06, 1);
           if (elapsed > 500) l.phase = 'hold';
         } else if (l.phase === 'hold') {
           l.elapsed += 16;
@@ -71,7 +71,7 @@ export function ShieldLetterBurst({ word, onDone }: ShieldLetterBurstProps) {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.shadowColor = `hsl(${l.hue}, 80%, 65%)`;
-        ctx.shadowBlur = 20;
+        ctx.shadowBlur = 40;
         ctx.fillText(l.char, l.x, l.y);
         ctx.restore();
       });
