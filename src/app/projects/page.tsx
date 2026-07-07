@@ -10,17 +10,13 @@ export const metadata: Metadata = {
   description: 'All projects, experiments, and missions from the software frontier.',
 };
 
-type PageProps = { searchParams: Promise<{ lang?: string }> };
-
-export default async function ProjectsPage({ searchParams }: PageProps) {
-  const { lang = 'en' } = await searchParams;
-  const currentLang = lang === 'es' ? 'es' : 'en';
+export default async function ProjectsPage() {
   const projects = await projectsRepositoryImpl.getAll();
 
   return (
     <div className="relative min-h-screen bg-background text-on-background bg-star-map bg-noise selection:bg-primary/30 selection:text-primary overflow-x-hidden">
       <ParticlesBackground />
-      <Header currentLang={currentLang} />
+      <Header currentLang="en" />
       <main className="pt-32 pb-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="mb-12">
           <span className="font-label-caps text-label-caps text-primary bg-primary/10 px-3 py-1 inline-block mb-4">
@@ -33,7 +29,8 @@ export default async function ProjectsPage({ searchParams }: PageProps) {
         </div>
         <ProjectsGrid projects={projects} />
       </main>
-      <Footer currentLang={currentLang} />
+      <Footer currentLang="en" />
     </div>
   );
 }
+
