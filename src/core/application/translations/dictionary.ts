@@ -23,23 +23,6 @@ export const translations = {
       title: "Featured Projects",
       subtitle: "Selected mission logs from the software frontier.",
       viewAll: "View All Archives ->",
-      cardLarge: {
-        tag: "DISTRIBUTED SYSTEMS",
-        title: "Nebula-Cloud Infrastructure",
-        description: "Redesigning the core backbone of a multi-region SaaS platform to achieve 99.999% availability under 2TB/s load.",
-      },
-      cardSmall1: {
-        title: "Signal v2.0",
-        description: "Real-time telemetry engine for IoT constellation tracking.",
-      },
-      cardSmall2: {
-        title: "Quasar UI",
-        description: "A high-performance design system for engineering dashboards.",
-      },
-      cardMedium: {
-        title: "ChronoDB Layer",
-        description: "A custom caching abstraction layer that reduced query latency by 45% across legacy PostgreSQL clusters.",
-      },
     },
     techZenith: {
       title: "Technological Zenith",
@@ -106,23 +89,6 @@ export const translations = {
       title: "Proyectos Destacados",
       subtitle: "Registros de misión seleccionados de la frontera del software.",
       viewAll: "Ver Todos los Archivos ->",
-      cardLarge: {
-        tag: "SISTEMAS DISTRIBUIDOS",
-        title: "Infraestructura Nebula-Cloud",
-        description: "Rediseño de la red troncal central de una plataforma SaaS multiregión para lograr un 99.999% de disponibilidad bajo una carga de 2TB/s.",
-      },
-      cardSmall1: {
-        title: "Señal v2.0",
-        description: "Motor de telemetría en tiempo real para el seguimiento de constelaciones IoT.",
-      },
-      cardSmall2: {
-        title: "Quasar UI",
-        description: "Un sistema de diseño de alto rendimiento para paneles de ingeniería.",
-      },
-      cardMedium: {
-        title: "Capa ChronoDB",
-        description: "Una capa de abstracción de caché personalizada que redujo la latencia de las consultas en un 45% en clusters PostgreSQL heredados.",
-      },
     },
     techZenith: {
       title: "Cénit Tecnológico",

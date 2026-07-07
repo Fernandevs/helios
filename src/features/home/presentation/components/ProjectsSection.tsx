@@ -1,18 +1,19 @@
-import React from "react";
-import { Activity, Terminal } from "lucide-react";
-import {
-  LargeProjectCard,
-  SmallProjectCard,
-  MediumProjectCard,
-} from "./ProjectCard";
-import { translations, Language } from "@/core/application/translations/dictionary";
+import Link from 'next/link';
+import { Activity, Terminal } from 'lucide-react';
+import { FeaturedLargeCard } from '@/features/projects/presentation/components/FeaturedLargeCard';
+import { FeaturedSmallCard } from '@/features/projects/presentation/components/FeaturedSmallCard';
+import { FeaturedMediumCard } from '@/features/projects/presentation/components/FeaturedMediumCard';
+import { translations, Language } from '@/core/application/translations/dictionary';
+import type { ProjectEntity } from '@/features/projects/domain/entities/project.entity';
 
 interface ProjectsSectionProps {
   currentLang: Language;
+  projects: ProjectEntity[];
 }
 
-export function ProjectsSection({ currentLang }: ProjectsSectionProps) {
+export function ProjectsSection({ currentLang, projects }: ProjectsSectionProps) {
   const t = translations[currentLang].projects;
+  const [large, small1, small2, medium] = projects;
 
   return (
     <section
@@ -21,37 +22,23 @@ export function ProjectsSection({ currentLang }: ProjectsSectionProps) {
     >
       <div className="flex justify-between items-end mb-stack-lg">
         <div>
-          <h2 className="text-headline-lg text-on-surface font-semibold">
-            {t.title}
-          </h2>
-          <p className="text-body-md text-on-surface-variant">
-            {t.subtitle}
-          </p>
+          <h2 className="text-headline-lg text-on-surface font-semibold">{t.title}</h2>
+          <p className="text-body-md text-on-surface-variant">{t.subtitle}</p>
         </div>
-        <a
+        <Link
+          href="/projects"
           className="font-label-caps text-label-caps text-primary hover:underline transition-all"
-          href="#"
         >
           {t.viewAll}
-        </a>
+        </Link>
       </div>
+
       <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-        <LargeProjectCard currentLang={currentLang} />
-        <SmallProjectCard
-          icon={Activity}
-          title={t.cardSmall1.title}
-          description={t.cardSmall1.description}
-          tech="Rust / WebAssembly"
-        />
-        <SmallProjectCard
-          icon={Terminal}
-          title={t.cardSmall2.title}
-          description={t.cardSmall2.description}
-          tech="React / TypeScript"
-        />
-        <MediumProjectCard currentLang={currentLang} />
+        {large && <FeaturedLargeCard project={large} />}
+        {small1 && <FeaturedSmallCard project={small1} icon={Activity} />}
+        {small2 && <FeaturedSmallCard project={small2} icon={Terminal} />}
+        {medium && <FeaturedMediumCard project={medium} />}
       </div>
     </section>
   );
 }
-
