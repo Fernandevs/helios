@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { ShieldEffects, EffectType } from '@/core/presentation/components/ShieldEffects';
-import { ShieldLetterBurst } from '@/core/presentation/components/ShieldLetterBurst';
+import { ShieldEffects, EffectType } from '@/features/core/presentation/components/ShieldEffects';
+import { ShieldLetterBurst } from '@/features/core/presentation/components/ShieldLetterBurst';
 
 const VISUAL_EFFECTS: EffectType[] = ['rain', 'snow', 'particles', 'fireworks', 'stars'];
 

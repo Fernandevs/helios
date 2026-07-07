@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { cn } from "@/core/application/lib/utils"
+import { cn } from "@/features/core/application/lib/utils"
 
 function Label({ className, ...props }: React.ComponentProps<"label">) {
   return (

@@ -5,10 +5,10 @@ import { HeroSection } from "@/features/home/presentation/components/HeroSection
 import { ProjectsSection } from "@/features/home/presentation/components/ProjectsSection";
 import { TechZenithSection } from "@/features/home/presentation/components/TechZenithSection";
 import { CareerTimeline } from "@/features/home/presentation/components/CareerTimeline";
-import { ParticlesBackground } from "@/core/presentation/components/ParticlesBackground";
-import { Constellations } from "@/core/presentation/components/Constellations";
-import { SpotlightEffect } from "@/core/presentation/components/SpotlightEffect";
-import { ScrollReveal } from "@/core/presentation/components/ScrollReveal";
+import { ParticlesBackground } from "@/features/core/presentation/components/ParticlesBackground";
+import { Constellations } from "@/features/core/presentation/components/Constellations";
+import { SpotlightEffect } from "@/features/core/presentation/components/SpotlightEffect";
+import { ScrollReveal } from "@/features/core/presentation/components/ScrollReveal";
 import { projectsRepositoryImpl } from "@/features/projects/infrastructure/repositories/projects.repository.impl";
 
 export const metadata: Metadata = {

@@ -6,7 +6,7 @@ import {
   UnauthorizedError,
   UnexpectedError,
   ValidationError,
-} from "@/core/domain/errors";
+} from "@/features/core/domain/errors";
 
 type AuthRepositoryImplProps = {
   datasource: AuthDatasource;
@@ -22,7 +22,7 @@ export class AuthRepositoryImpl implements AuthRepository {
   async login(email: string, password: string): Promise<User> {
     try {
       const response = await this.datasource.login(email, password);
-      
+
       if (!response.user) {
         throw new UnauthorizedError("Usuario no encontrado en la sesión de autenticación.");
       }
@@ -35,7 +35,7 @@ export class AuthRepositoryImpl implements AuthRepository {
         if (message.includes("Invalid login credentials") || message.includes("invalid_credentials")) {
           throw new UnauthorizedError("Credenciales de acceso inválidas.");
         }
-        
+
         if (message.includes("Email not confirmed")) {
           throw new UnauthorizedError("El correo electrónico no ha sido confirmado.");
         }

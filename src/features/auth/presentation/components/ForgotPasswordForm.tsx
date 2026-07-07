@@ -5,10 +5,10 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { forgotPasswordSchema, ForgotPasswordInput } from "../schemas/forgot-password.schema";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/core/presentation/components/ui/card";
-import { Input } from "@/core/presentation/components/ui/input";
-import { Button } from "@/core/presentation/components/ui/button";
-import { Field, FieldLabel, FieldError, FieldGroup } from "@/core/presentation/components/ui/field";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/features/core/presentation/components/ui/card";
+import { Input } from "@/features/core/presentation/components/ui/input";
+import { Button } from "@/features/core/presentation/components/ui/button";
+import { Field, FieldLabel, FieldError, FieldGroup } from "@/features/core/presentation/components/ui/field";
 
 export function ForgotPasswordForm() {
   const [success, setSuccess] = useState(false);

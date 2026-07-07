@@ -1,5 +1,5 @@
 import nodemailer, { Transporter } from "nodemailer";
-import { Mailer, MailOptions } from "@/core/domain/services/mailer";
+import { Mailer, MailOptions } from "@/features/core/domain/services/mailer";
 
 export class NodemailerAdapter extends Mailer {
   private static instance: NodemailerAdapter | null = null;

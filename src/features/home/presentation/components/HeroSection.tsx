@@ -1,6 +1,6 @@
 import React from "react";
-import { translations, Language } from "@/core/application/translations/dictionary";
-import { Helios } from "@/core/presentation/components/Helios";
+import { translations, Language } from "@/features/core/application/translations/dictionary";
+import { Helios } from "@/features/core/presentation/components/Helios";
 
 interface HeroSectionProps {
   currentLang: Language;
@@ -52,7 +52,7 @@ export function HeroSection({ currentLang }: HeroSectionProps) {
         <div className="lg:col-span-4 relative flex justify-center">
           {/* Glowing Halo Effect */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-80 md:h-80 bg-primary/20 blur-[80px] rounded-full pointer-events-none"></div>
-          
+
           <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border border-primary/30 flex items-center justify-center p-4 shadow-[0_0_40px_rgba(192,193,255,0.15)] bg-surface-container-low/40 backdrop-blur-md">
             <div className="absolute inset-0 animate-spin-slow border-t border-primary/50 rounded-full"></div>
             <div className="w-full h-full rounded-full overflow-hidden border border-primary/20 relative flex items-center justify-center">

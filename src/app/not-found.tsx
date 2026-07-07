@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { BlackHole } from "@/core/presentation/components/BlackHole";
-import { ParticlesBackground } from "@/core/presentation/components/ParticlesBackground";
-import { Constellations } from "@/core/presentation/components/Constellations";
-import { SpotlightEffect } from "@/core/presentation/components/SpotlightEffect";
-import { buttonVariants } from "@/core/presentation/components/ui/button";
-import { cn } from "@/core/application/lib/utils";
+import { BlackHole } from "@/features/core/presentation/components/BlackHole";
+import { ParticlesBackground } from "@/features/core/presentation/components/ParticlesBackground";
+import { Constellations } from "@/features/core/presentation/components/Constellations";
+import { SpotlightEffect } from "@/features/core/presentation/components/SpotlightEffect";
+import { buttonVariants } from "@/features/core/presentation/components/ui/button";
+import { cn } from "@/features/core/application/lib/utils";
 
 export default function NotFound() {
   return (

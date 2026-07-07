@@ -4,7 +4,7 @@ import { Header } from '@/features/home/presentation/components/Header';
 import { Footer } from '@/features/home/presentation/components/Footer';
 import { ProjectDetailHero } from '@/features/projects/presentation/components/ProjectDetailHero';
 import { ProjectDetailBody } from '@/features/projects/presentation/components/ProjectDetailBody';
-import { ParticlesBackground } from '@/core/presentation/components/ParticlesBackground';
+import { ParticlesBackground } from '@/features/core/presentation/components/ParticlesBackground';
 import { projectsRepositoryImpl } from '@/features/projects/infrastructure/repositories/projects.repository.impl';
 
 type PageProps = { params: Promise<{ slug: string }> };

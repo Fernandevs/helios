@@ -1,5 +1,5 @@
 import React from "react";
-import { translations, Language } from "@/core/application/translations/dictionary";
+import { translations, Language } from "@/features/core/application/translations/dictionary";
 
 interface TechZenithSectionProps {
   currentLang: Language;

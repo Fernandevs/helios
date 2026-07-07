@@ -1,7 +1,7 @@
 import React from "react";
-import { ParticlesBackground } from "@/core/presentation/components/ParticlesBackground";
-import { Constellations } from "@/core/presentation/components/Constellations";
-import { SpotlightEffect } from "@/core/presentation/components/SpotlightEffect";
+import { ParticlesBackground } from "@/features/core/presentation/components/ParticlesBackground";
+import { Constellations } from "@/features/core/presentation/components/Constellations";
+import { SpotlightEffect } from "@/features/core/presentation/components/SpotlightEffect";
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -3,24 +3,24 @@ import { loginSchema } from "@/features/auth/presentation/schemas/login.schema";
 import { AuthDatasourceSupabase } from "@/features/auth/infrastructure/datasources/auth.datasource.supabase";
 import { AuthRepositoryImpl } from "@/features/auth/infrastructure/repositories/auth.repository.impl";
 import { LoginUseCase } from "@/features/auth/application/use-cases/login.use-case";
-import { AppError } from "@/core/domain/errors";
+import { AppError } from "@/features/core/domain/errors";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    
+
     // Validate presentation layer input using Zod
     const parsed = loginSchema.safeParse(body);
     if (!parsed.success) {
       return NextResponse.json(
-        { 
-          error: "Datos de entrada inválidos", 
-          details: parsed.error.format() 
+        {
+          error: "Datos de entrada inválidos",
+          details: parsed.error.format()
         },
         { status: 400 }
       );
     }
-    
+
     const { email, password } = parsed.data;
 
     // Instantiate Clean Architecture layers
@@ -40,13 +40,13 @@ export async function POST(request: Request) {
       } else if (error.code === "NOT_FOUND") {
         status = 404;
       }
-      
+
       return NextResponse.json(
         { error: error.message, code: error.code, details: error.details },
         { status }
       );
     }
-    
+
     const message = error instanceof Error ? error.message : "Error interno del servidor";
     return NextResponse.json(
       { error: message },

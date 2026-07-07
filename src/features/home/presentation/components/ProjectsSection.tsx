@@ -6,7 +6,7 @@ import { Activity, Terminal, ChevronLeft, ChevronRight } from 'lucide-react';
 import { FeaturedLargeCard } from '@/features/projects/presentation/components/FeaturedLargeCard';
 import { FeaturedSmallCard } from '@/features/projects/presentation/components/FeaturedSmallCard';
 import { FeaturedMediumCard } from '@/features/projects/presentation/components/FeaturedMediumCard';
-import { translations, Language } from '@/core/application/translations/dictionary';
+import { translations, Language } from '@/features/core/application/translations/dictionary';
 import type { ProjectEntity } from '@/features/projects/domain/entities/project.entity';
 
 interface ProjectsSectionProps {
@@ -76,7 +76,7 @@ export function ProjectsSection({ currentLang, projects }: ProjectsSectionProps)
         {small2 && <FeaturedSmallCard project={small2} icon={Terminal} />}
         {medium && <FeaturedMediumCard project={medium} />}
       </div>
-      
+
       <div className="mt-8 text-center md:hidden">
         <Link
           href="/projects"

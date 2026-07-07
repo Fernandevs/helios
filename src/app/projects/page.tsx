@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Header } from '@/features/home/presentation/components/Header';
 import { Footer } from '@/features/home/presentation/components/Footer';
 import { ProjectsGrid } from '@/features/projects/presentation/components/ProjectsGrid';
-import { ParticlesBackground } from '@/core/presentation/components/ParticlesBackground';
+import { ParticlesBackground } from '@/features/core/presentation/components/ParticlesBackground';
 import { projectsRepositoryImpl } from '@/features/projects/infrastructure/repositories/projects.repository.impl';
 
 export const metadata: Metadata = {

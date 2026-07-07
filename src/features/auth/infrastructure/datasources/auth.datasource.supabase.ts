@@ -1,5 +1,5 @@
-import { getSupabaseServerClient } from "@/core/infraestructure/adapters/supabase";
-import { Mailer } from "@/core/domain/services/mailer";
+import { getSupabaseServerClient } from "@/features/core/infraestructure/adapters/supabase";
+import { Mailer } from "@/features/core/domain/services/mailer";
 import { AuthDatasource, RawAuthResponse } from "@/features/auth/domain/datasources/auth.datasource";
 
 type AuthDatasourceProps = {
@@ -28,18 +28,18 @@ export class AuthDatasourceSupabase implements AuthDatasource {
     return {
       user: data.user
         ? {
-            id: data.user.id,
-            email: data.user.email,
-            user_metadata: (data.user.user_metadata as Record<string, unknown>) || {},
-            created_at: data.user.created_at,
-          }
+          id: data.user.id,
+          email: data.user.email,
+          user_metadata: (data.user.user_metadata as Record<string, unknown>) || {},
+          created_at: data.user.created_at,
+        }
         : null,
       session: data.session
         ? {
-            access_token: data.session.access_token,
-            refresh_token: data.session.refresh_token,
-            expires_in: data.session.expires_in,
-          }
+          access_token: data.session.access_token,
+          refresh_token: data.session.refresh_token,
+          expires_in: data.session.expires_in,
+        }
         : null,
     };
   }

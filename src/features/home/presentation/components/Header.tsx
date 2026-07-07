@@ -1,7 +1,7 @@
 import { Network, Database } from "lucide-react";
-import { LanguageSwitcher } from "@/core/presentation/components/LanguageSwitcher";
-import { translations, Language } from "@/core/application/translations/dictionary";
-import { Helios } from "@/core/presentation/components/Helios";
+import { LanguageSwitcher } from "@/features/core/presentation/components/LanguageSwitcher";
+import { translations, Language } from "@/features/core/application/translations/dictionary";
+import { Helios } from "@/features/core/presentation/components/Helios";
 
 interface HeaderProps {
   currentLang: Language;

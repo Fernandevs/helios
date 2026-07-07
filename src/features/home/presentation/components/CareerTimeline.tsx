@@ -1,5 +1,5 @@
 import React from "react";
-import { translations, Language } from "@/core/application/translations/dictionary";
+import { translations, Language } from "@/features/core/application/translations/dictionary";
 
 interface CareerTimelineProps {
   currentLang: Language;
@@ -26,9 +26,8 @@ export function CareerTimeline({ currentLang }: CareerTimelineProps) {
           <div key={idx} className="relative mb-stack-lg md:mb-section-gap">
             <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 z-10 border-4 border-background"></div>
             <div
-              className={`md:w-1/2 ml-4 md:ml-0 ${
-                exp.alignLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:ml-auto"
-              }`}
+              className={`md:w-1/2 ml-4 md:ml-0 ${exp.alignLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:ml-auto"
+                }`}
             >
               <span className="font-label-caps text-label-caps text-primary">
                 {exp.period}

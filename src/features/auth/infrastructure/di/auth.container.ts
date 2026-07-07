@@ -1,9 +1,9 @@
 import { LoginUseCase } from "@/features/auth/application/use-cases/login.use-case";
-import {AuthDatasource} from "@/features/auth/domain/datasources/auth.datasource";
-import {AuthRepository} from "@/features/auth/domain/repositories/auth.repository";
-import {AuthDatasourceSupabase} from "@/features/auth/infrastructure/datasources/auth.datasource.supabase";
-import {AuthRepositoryImpl} from "@/features/auth/infrastructure/repositories/auth.repository.impl";
-import {Mailer} from "@/core/domain/services/mailer";
+import { AuthDatasource } from "@/features/auth/domain/datasources/auth.datasource";
+import { AuthRepository } from "@/features/auth/domain/repositories/auth.repository";
+import { AuthDatasourceSupabase } from "@/features/auth/infrastructure/datasources/auth.datasource.supabase";
+import { AuthRepositoryImpl } from "@/features/auth/infrastructure/repositories/auth.repository.impl";
+import { Mailer } from "@/features/core/domain/services/mailer";
 
 type AuthContainerProps = {
   mailer: Mailer;
