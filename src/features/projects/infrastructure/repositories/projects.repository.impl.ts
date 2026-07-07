@@ -98,7 +98,7 @@ const PROJECTS: ProjectEntity[] = [
     title: 'Graviton API Gateway',
     tag: 'INFRASTRUCTURE',
     accentColor: '#60a5fa',
-    featured: false,
+    featured: true,
     year: '2024',
     status: 'active',
     tech: ['Go', 'GraphQL', 'Envoy', 'OpenTelemetry', 'Redis', 'WASM'],
